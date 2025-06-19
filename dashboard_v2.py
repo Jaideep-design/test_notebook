@@ -49,7 +49,7 @@ drive_service = build('drive', 'v3', credentials=creds)
 sheets_service = build('sheets', 'v4', credentials=creds)
 
 # Authenticate
-gc = gspread.service_account(filename=service_account_info)
+gc = gspread.authorize(creds)
 sh = gc.open_by_key(COMMENTS_SHEET_ID)
 worksheet = sh.worksheet(COMMENTS_SHEET_NAME)
 
